@@ -1,0 +1,39 @@
+﻿@charset "UTF-8";
+/*materialaicon用*/
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* 推奨サイズ */
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  line-height: 1;
+  text-transform: none;
+
+  /* WebKitブラウザサポート */
+  -webkit-font-smoothing: antialiased;
+  /* Chrome、Safariサポート */
+  text-rendering: optimizeLegibility;
+ 
+  /* Firefoxサポート */
+  -moz-osx-font-smoothing: grayscale;
+ 
+  /* IEサポート */
+  font-feature-settings: 'liga';
+}
+
+  /* Materialicons余白 */
+.mdl-navigation__link .material-icons {
+  font-size: 24px;
+  margin-right: 32px; }
+
+.drawer-separator {
+    height: 1px;
+    background-color: #dcdcdc;
+    margin: 8px 0;
+}
+/* Materialicons終わり */
+
+/*背景Whitesmoke*/
+body{background-color:#F8F8F8}

@@ -1,0 +1,91 @@
+﻿<!doctype html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>File Select</title>
+    </head>
+    <body>
+    	再生するファイルを選択してください<br>
+        <br>
+        <br>
+		<br>
+
+		<form name="myForm" action="SelectVideo.html">
+		<input type="text" name="VideoExWord" id="VideoExWord" style="width: 140px;">
+		<input type="submit" value="抽出">
+		</form>
+		
+		<form action="StartTv.html">
+		<br>
+		%SELECTVIDEO%
+		<br>
+		<br>
+<SCRIPT type="text/javascript" language="JavaScript">
+function SortSelect(blnAtoZ){
+	if(blnAtoZ == null){blnAtoZ = true}
+	objSelect = document.getElementById('VideoName');
+	for (i = 1; i < objSelect.length; i++) {
+		strInsert = objSelect.options[i].text;
+		for (j = 0; j <= i; j++ ) {
+			strCurrent = objSelect.options[j].text;
+			if (((blnAtoZ && strInsert <= strCurrent) || (!blnAtoZ && strInsert >= strCurrent)) && (i != j) && strCurrent != '---') {
+			   objInsert = objSelect.options[i];
+			   objWalk = objSelect.options[j];
+			   objSelect.insertBefore(objInsert, objWalk);
+			   j = i;
+			}
+		}
+	}
+	objSelect[0].selected = true
+}
+function SortSelectValue(blnAtoZ){
+	if(blnAtoZ == null){blnAtoZ = true}
+	objSelect = document.getElementById('VideoName');
+	for (i = 1; i < objSelect.length; i++) {
+		strInsert = objSelect.options[i].value;
+		for (j = 0; j <= i; j++ ) {
+			strCurrent = objSelect.options[j].value;
+			if (((blnAtoZ && strInsert <= strCurrent) || (!blnAtoZ && strInsert >= strCurrent)) && (i != j)  && strCurrent != '') {
+			   objInsert = objSelect.options[i];
+			   objWalk = objSelect.options[j];
+			   objSelect.insertBefore(objInsert, objWalk);
+			   j = i;
+			}
+		}
+	}
+	objSelect[0].selected = true
+}
+</SCRIPT>
+
+<input type="button" value="ファイル名昇順" onClick="SortSelect(true)">
+<input type="button" value="ファイル名降順" onClick="SortSelect(false)">
+<input type="button" value="更新日時昇順" onClick="SortSelectValue(true)">
+<input type="button" value="更新日時降順" onClick="SortSelectValue(false)">
+		<br>
+		<br>
+		%SELECTNUM%　%SELECTRESOLUTION%
+		　<select name="NHKMODE">
+			<option value="0">主・副</option>
+			<option value="11">主</option>
+			<option value="12">副</option>
+			<option value="4">第二音声</option>
+			<option value="5">動画主音声</option>
+			<option value="6">動画副音声</option>
+		</select>
+		　開始シーク<input type="text" name="VideoSeekSeconds" size="4" value="%VIDEOSEEKSECONDS%">秒
+		　再生スピード<select name="VideoSpeed">
+			<option>0.5</option>
+			<option selected>1.0</option>
+			<option>1.5</option>
+			<option>2.0</option>
+		</select>倍
+		<br>
+		<br>
+		<input type="submit" value="再生">
+		</form>
+        <br>
+        <br>
+        <br>
+        <input type="button" value="トップメニュー" onClick="location.href='index.html'">
+    </body>
+</html>

@@ -1,0 +1,55 @@
+﻿<!doctype html>
+<html>
+    <head>        
+        <title>Prosess Stop</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		 <meta name="viewport" content="width=device-width,initial-scale=1">
+		<meta http-equiv="refresh" content="3;URL=index.html">
+        <!--MaterialDesignLite読み込み-->
+        <link rel="stylesheet" href="css/mdl/material.min.css">
+        <script src="css/mdl/material.min.js"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue_grey-blue.min.css" /> 
+        <!--jquery読み込み-->
+        <script src="js/jquery-3.1.1.min.js"></script>
+        <!--共通js読み込み-->
+        <script src="js/TvRemoteViewer_VB.js"></script>
+        <!--共通css読み込み-->
+        <link rel="stylesheet" href="css/TvRemoteViewer_VB.css">
+        <!--スマホ用アイコン-->
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+	</head>
+	<body>
+		<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+            <!--ハンバーガーメニュー-->
+            <header class="mdl-layout__header">
+                <div class="mdl-layout__header-row">
+                    <!-- Title -->
+                    <span class="mdl-layout-title">TvRemoteViewer_VB</span>
+                    <div class="mdl-layout-spacer"></div>
+                    <nav class="mdl-navigation mdl-layout--large-screen-only">
+                        <!--<a class="mdl-navigation__link" href="">Link</a>-->
+                    </nav>
+                </div>
+            </header>
+            <div class="mdl-layout__drawer">
+                <span class="mdl-layout-title">TvRemoteViewer</span>
+                <nav class="mdl-navigation">
+                    <div class="drawer-separator"></div>
+                    <a class="mdl-navigation__link" href="index.html"><i class="material-icons">home</i>Home</a>
+                    <a class="mdl-navigation__link" href="TvProgram_EDCB.html"><i class="material-icons">view_list</i>放送中番組一覧</a>
+                    <a class="mdl-navigation__link" href="http://192.168.3.127:5510\epg.html"><i class="material-icons">dashboard</i>番組表</a>
+                    <a class="mdl-navigation__link" href="SelectVideo.html"><i class="material-icons">video_library</i>ライブラリ</a>
+                    <a class="mdl-navigation__link" href="Settings.html"><i class="material-icons">settings</i>設定</a>
+                </nav>
+            </div>
+            <!--end-->
+            <style>p{margin : 30px;}</style>
+						<p>すべてのプロセスが停止されました<br>
+						自動でHomeに移動します...</p>
+		</div>
+		<form action="index.html">
+            <input type="submit" value="戻る" />
+        </form>
+	</body>
+</html>

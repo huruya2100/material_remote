@@ -1,0 +1,160 @@
+﻿<!doctype html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>TvRemoteViewer_VB</title>
+        <!--MaterialDesignLite読み込み-->
+        <link rel="stylesheet" href="css/mdl/material.min.css">
+        <script src="css/mdl/material.min.js"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+         <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue_grey-blue.min.css" /> 
+        <!--共通css読み込み-->
+        <link rel="stylesheet" href="css/TvRemoteViewer_VB.css">
+        <!--indexcss読み込み-->
+        <link rel="stylesheet" href="css/index.css">
+        <!--jquery読み込み-->
+        <script src="js/jquery-3.1.1.min.js"></script>
+        <!--共通js読み込み-->
+        <script src="js/TvRemoteViewer_VB.js"></script>
+        <!--indexjs読み込み-->
+        <script charset="utf-8" src="js/index.js">s</script>
+        <!--スマホ用アイコン-->
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        
+    </head>
+    <body>
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+            <!--ハンバーガーメニュー-->
+            <header class="mdl-layout__header">
+                <div class="mdl-layout__header-row">
+                    <!-- Title -->
+                    <span class="mdl-layout-title">TvRemoteViewer_VB</span>
+                    <div class="mdl-layout-spacer"></div>
+                    <nav class="mdl-navigation mdl-layout--large-screen-only">
+                        <!--<a class="mdl-navigation__link" href="">Link</a>-->
+                    </nav>
+                </div>
+            </header>
+            <div class="mdl-layout__drawer">
+                <span class="mdl-layout-title">TvRemoteViewer</span>
+                <nav class="mdl-navigation">
+                    <div class="drawer-separator"></div>
+                    <a class="mdl-navigation__link" href="index.html"><i class="material-icons">home</i>Home</a>
+                    <a class="mdl-navigation__link" href="TvProgram_EDCB.html"><i class="material-icons">view_list</i>放送中番組一覧</a>
+                    <a class="mdl-navigation__link" href="http://192.168.3.127:5510\epg.html"><i class="material-icons">dashboard</i>番組表</a>
+                    <a class="mdl-navigation__link" href="SelectVideo.html"><i class="material-icons">video_library</i>ライブラリ</a>
+                    <a class="mdl-navigation__link" href="Settings.html"><i class="material-icons">settings</i>設定</a>
+                </nav>
+            </div>
+            <!--end-->
+            <main class="mdl-layout__content">
+                <div class="page-content">
+            <div class="mdl-grid">
+            <div class="mdl-cell mdl-cell--4-col">
+                <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+                    <div class="mdl-card--border mdl-cell mdl-cell--12-col">
+                        <div class="mdl-card__supporting-text">
+                            <h5>放送中番組一覧</h5>
+                            <p>EDCBなどから現在放送中の番組を取得して表示します<p/>
+                        </div>
+                        <div class="mdl-card__actions">
+                            <a href="TvProgram_EDCB.html" class="mdl-button">表示</a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="mdl-cell mdl-cell--4-col">
+                <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+                    <div class="mdl-card--border mdl-cell mdl-cell--12-col">
+                        <div class="mdl-card__supporting-text">
+                            <h5>チャンネルを指定して視聴</h5>
+                            <form action="StartTv.html">
+                                <select class="mdl-textfield__input" name="num">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    <option>6</option>
+                                    <option>7</option>
+                                    <option>8</option>
+                                </select>
+                                %SELECTBONSIDCH:%
+                                %SELECTNHKMODE:::%
+                                <select name="resolution">
+                                    <option>画質設定</option>
+                                    <option>320x180</option>
+                                    <option>480x270</option>
+                                    <option>640x360</option>
+                                    <option>720x480</option>
+                                    <option>960x540</option>
+                                    <option>1280x720</option>
+                                    <option>1920x1080</option>
+                                </select>
+                                <select name="hlsAppSelect">
+                                    <option>ffmpeg</option>
+                                    <option>QSVEnc</option>
+                                    <option>NVEnc</option>
+                                </select>
+                        </div>
+                            <div class="mdl-card__actions">
+                                <button class="mdl-button">配信開始</a></form>
+                            </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="mdl-cell mdl-cell--4-col">
+                <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+                    <div class="mdl-card mdl-cell mdl-cell--12-col">
+                        <div class="mdl-card__supporting-text">
+                            <h5>ライブラリ</h5>
+                            <p>録画番組を再生します<p/>
+                        </div>
+                        <div class="mdl-card__actions">
+                            <a href="SelectVideo.html" class="mdl-button">表示</a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="mdl-cell mdl-cell--4-col">
+                <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+                    <div class="mdl-card mdl-cell mdl-cell--12-col">
+                        <div class="mdl-card__supporting-text">
+                            <h5>配信中のストリーム</h5>
+                            %VIEWBUTTONS:::<br>:ありません%<br><br>
+
+                            停止するストリームを選択:<form action="CloseTv.html">
+                                <select class="mdl-textfield__input" name="num">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    <option>6</option>
+                                    <option>7</option>
+                                    <option>8</option>
+                                </select>
+                        </div>
+                        <div class="mdl-card__actions">
+                            <button id="stop_NUM" type="submit" class="mdl-button">配信停止</button></form>
+                            <form num="-2" action="WI_STOP_STREAM.html">
+                                <button id="stop_All" type="submit" class="mdl-button">全配信停止</button>
+                                <div id="stop_All2" class="mdl-js-snackbar mdl-snackbar">
+                                    <div class="mdl-snackbar__text"></div>
+                                    <button class="mdl-snackbar__action" type="button"></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+
+        
+    </body>
+</html>

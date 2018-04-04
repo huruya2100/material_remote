@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width">
+        <title>HTTP Live Streaming %NUM%</title>
+    </head>
+
+	<!--MaterialDesignLite読み込み-->
+	<link rel="stylesheet" href="css/mdl/material.min.css">
+	<script src="css/mdl/material.min.js"></script>
+	<link rel="stylesheet" href="css/mdl/material.blue_grey-orange.min.css" /> 
+	<!--Materialicons読み込み-->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!--jquery読み込み-->
+	<script src="js/jquery-3.1.1.min.js"></script>
+	<!--hls.js読み込み-->
+	<script src="js/hls.min.js"></script>
+	<!--共通js読み込み-->
+	<script src="js/TvRemoteViewer_VB.js"></script>
+	<!--共通css読み込み-->
+	<link rel="stylesheet" href="css/TvRemoteViewer_VB.css">
+	<!--viewTVjs読み込み-->
+	<script src="js/viewTV/viewTV.js"></script>
+	
+	<body style="padding:0px; margin:0; border:0;">
+
+	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <span class="mdl-layout-title">HTTP Live Streaming %NUM% <script>document.write(result[0][7]);</script></span>
+
+      <div class="mdl-layout-spacer"></div>
+
+      <nav class="mdl-navigation mdl-layout--fixed-header">
+        <button id="demo-menu-lower-right"
+				class="mdl-button mdl-js-button mdl-button--icon">
+				<i class="material-icons">more_vert</i>
+		</button>
+		<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+			for="demo-menu-lower-right">
+			<a href="CloseTV.html?num=%NUM%" class="mdl-menu__item">この配信を停止</a>
+			<a href="StopAll.html" class="mdl-menu__item">すべての配信を停止</a>
+		</ul>
+      </nav>
+    </div>
+  </header>
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">TvRemoteViewer</span>
+    <nav class="mdl-navigation">
+		<a class="mdl-navigation__link" href="index.html"><i class="material-icons">home</i>Home</a>
+		<a class="mdl-navigation__link" href="TvProgram_EDCB.html"><i class="material-icons">view_list</i>放送中番組一覧</a>
+		<a class="mdl-navigation__link" href="http://192.168.3.127:5510\epg.html"><i class="material-icons">dashboard</i>番組表</a>
+		<a class="mdl-navigation__link" href="SelectVideo.html"><i class="material-icons">video_library</i>ライブラリ</a>
+		<a class="mdl-navigation__link" href="Settings.html"><i class="material-icons">settings</i>設定</a>
+		</nav>
+  </div>
+  <main class="mdl-layout__content">
+    <div class="page-content">　
+
+
+		<!--<script type="text/javascript">
+        document.write("<video src=\"" + "http://%IDPASS%" + location.host + "/" + "%FILEROOT%mystream%SUBSTR%%NUM%.m3u8" + "\" controls autobuffer autoplay preload=\"auto\" width=\"%WIDTH%\" height=\"%HEIGHT%\"></video>");
+    </script>-->
+
+		<style> div.resizeimage {
+			max-width: %WIDTH%px; /* 最大幅を設定してサイズ以上に拡大しないように */  }
+			div.resizeimage video { width: 100%; }
+			</style>
+	<!--HLS-->
+		<div class="resizeimage"><video id="video" audio.type="audio/mpeg" onclick="this.play()" controls></video>
+		<script>if(Hls.isSupported()) {
+    	var video = document.getElementById('video');
+    	var hls = new Hls();
+    	hls.loadSource('%FILEROOT%mystream%SUBSTR%%NUM%.m3u8');
+    	hls.attachMedia(video);
+    		hls.on(Hls.Events.MANIFEST_PARSED,function() {
+      		video.play();
+ 	 			});
+			 }	 
+		</script>
+		</div>
+<div class="mdl-grid">
+	<div class="mdl-cell mdl-cell--6-col">
+		<div class="stream_Control">
+			%VIEWBUTTONS%
+			<br>
+			<br>
+			%SELECTCH:::<br>%
+			<input type="button" value="トップメニュー" onClick="location.href='index.html'">
+			<input type="button" Value="再読み込み" onClick="location.reload();">
+      <input type="button" value="地デジ番組表" onClick="location.href='TvProgram.html'">
+		  %TVPROGRAM-TVROCK-BUTTON%
+			%TVPROGRAM-EDCB-BUTTON%
+			%TVPROGRAM-PTTIMER-BUTTON%
+			%TVPROGRAM-TVMAID-BUTTON%
+			<input type="button" value="戻る" onClick="history.go(-1);">
+		</div>
+	</div>
+	<div class="mdl-cell mdl-cell--6-col">
+		<div class="stream_info">
+			<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+                    <div class="mdl-card mdl-cell mdl-cell--12-col">
+                        <div class="mdl-card__supporting-text">
+													<div id="ViewTV1_Streaminfo">
+                           
+														<p><script>
+														
+                        </div></div>
+                        <!--<div class="mdl-card__actions">
+                            <a href="SelectVideo.html" class="mdl-button">表示</a>
+                        </div>-->
+                    </div>
+			</section>
+		</div>
+	</div>
+</div>
+
+
+
+
+			
+	</div>
+  </main>
+</div>
+</body>
+</html>

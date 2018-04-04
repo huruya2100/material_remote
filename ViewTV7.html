@@ -1,0 +1,44 @@
+﻿<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width">
+        <title>HTTP Live Streaming %NUM%</title>
+    </head>
+    <body style="padding:0px; margin:0; border:0;">
+    <script type="text/javascript">
+        document.write("<video src=\"" + "http://%IDPASS%" + location.host + "/" + "%FILEROOT%mystream%SUBSTR%%NUM%.m3u8" + "\" controls autobuffer autoplay preload=\"auto\" width=\"%WIDTH%\" height=\"%HEIGHT%\"></video>");
+    </script>
+        <br>
+        %VIEWBUTTONS%
+        <br>
+		<br>
+		%SELECTCH:::<br>%
+        <input type="button" value="トップメニュー" onClick="location.href='index.html'">
+        <input type="button" Value="再読み込み" onClick="location.reload();">
+        <input type="button" value="地デジ番組表" onClick="location.href='TvProgram.html'">
+		%TVPROGRAM-TVROCK-BUTTON%
+		%TVPROGRAM-EDCB-BUTTON%
+		%TVPROGRAM-PTTIMER-BUTTON%
+		%TVPROGRAM-TVMAID-BUTTON%
+		<input type="button" value="戻る" onClick="history.go(-1);">
+
+		<script type="text/javascript">
+			function changeSelect(){
+				try {
+    				var select = document.getElementById('SEL2');
+	    			var options = document.getElementById('SEL2').options;
+    				var value = options.item(select.selectedIndex).text;
+					if (value.indexOf('ＮＨＫ') < 0) {
+						document.getElementById('NHKVIEW').style.display = "none";
+					} else {
+						document.getElementById('NHKVIEW').style.display = "";
+					}
+				} catch (e) {
+				}
+			}
+			//オンロードさせ、リロード時に選択を保持
+			window.onload = changeSelect;
+		</script>
+    </body>
+</html>
